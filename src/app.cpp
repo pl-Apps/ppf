@@ -13,8 +13,11 @@ int main(int argc, char* argv[])
         clear();
         print("Packed file: ");
         const string targetname = input();
-        const string targetcontent = readfile(targetname);
-        println(targetcontent);
+        clear();
+        print("Output file: ");
+        const string outtargetname = input();
+        clear();
+        ppf_coding_struct::decode_file(outtargetname, readfile(targetname));
     }
     else if(choice == "2")
     {
@@ -24,6 +27,7 @@ int main(int argc, char* argv[])
         clear();
         print("Source file: ");
         const string source_filename = input();
+        clear();
         ppf_coding_struct::encode_file(newpack, readfile(source_filename));
     }
     else

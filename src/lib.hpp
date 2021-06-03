@@ -4,6 +4,9 @@
 
 using namespace std;
 
+const char alpchars[28] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ', '\n'};
+
+
 void print(string value)
 {
     try
@@ -75,9 +78,25 @@ int writefile(string filename, string content)
 
 namespace ppf_coding_struct
 {
-    string decode(int* code)
+    typedef int* encoded_string;
+    string decode(encoded_string code)
     {
-        return "NO";
+        char ret[size_t(code)];
+        int recchars[28];
+        for(int i = 0; i < size_t(recchars); i++)
+        {
+            recchars[i] = int(alpchars[i]);
+        }
+        for(int i = 0; i < size_t(code); i++)
+        {
+            for(int z = 0; z < size_t(recchars); z++)
+            {
+                if(code[i] == recchars[z])
+                {
+                    ret[i] = alpchars[z];
+                }
+            }
+        }
     }
     string encode(string source)
     {
@@ -101,6 +120,19 @@ namespace ppf_coding_struct
         {
             const string encoded = encode(content);
             writefile(filename, encoded);
+            return 0;
+        }
+        catch (exception ex)
+        {
+            return 1;
+        }
+    }
+    int decode_file(string filename, encoded_string content)
+    {
+        try
+        {
+            const string decoded = decode(content);
+            writefile(filename, decoded);
             return 0;
         }
         catch (exception ex)
