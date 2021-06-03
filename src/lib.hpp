@@ -58,9 +58,24 @@ string readfile(string filename)
 	return 0;
 }
 
+int writefile(string filename, string content)
+{
+    try 
+    {
+        ofstream target(filename);
+        target << content;
+        target.close();
+        return 0;
+    }
+    catch (exception ex)
+    {
+        return 1;
+    }
+}
+
 namespace ppf_coding_struct
 {
-    string decode(int* code[])
+    string decode(int* code)
     {
         
     }
@@ -81,8 +96,9 @@ namespace ppf_coding_struct
         }
         return tmp;
     }
-        int encode_file(string filename, string content)
+    int encode_file(string filename, string content)
     {
-        encode(content);
+        const string encoded = encode(content);
+        writefile(filename, encoded);
     }
 }
