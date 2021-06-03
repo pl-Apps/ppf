@@ -18,14 +18,8 @@ void print(string value)
 
 void println(string value)
 {
-    try
-    {
-        cout << value << endl;
-    }
-    catch(exception ex)
-    {
-        return;
-    }
+    cout << value << endl;
+    return;
 }
 
 string input()
@@ -38,4 +32,5 @@ string input()
 int clear()
 {
     print("\033[2J\033[1;1H");
+    return 0;
 }
