@@ -114,6 +114,23 @@ namespace ppf_coding_struct
         }
         return tmp;
     }
+    encoded_string read_encoded_file(string filename)
+    {
+        const string text = readfile(filename);
+        encoded_string ret;
+        char* tmp;
+        int o = 0;
+        for(int i = 0; i < sizeof(text); i++)
+        {
+            tmp += text[i];
+            if(text[i] == '|')
+            {
+                ret[o] = int(tmp);
+                tmp = "";
+            }
+            o++;
+        }
+    }
     int encode_file(string filename, string content)
     {
         try 

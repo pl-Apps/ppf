@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
         print("Output file: ");
         const string outtargetname = input();
         clear();
-        ppf_coding_struct::decode_file(outtargetname, readfile(targetname));
+        ppf_coding_struct::decode_file(outtargetname, ppf_coding_struct::read_encoded_file(targetname));
     }
     else if(choice == "2")
     {
