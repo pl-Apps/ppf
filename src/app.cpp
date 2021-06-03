@@ -12,8 +12,9 @@ int main(int argc, char* argv[])
     {
         clear();
         print("Packed file: ");
-        const string targetpack = input();
-        
+        const string targetname = input();
+        const string targetcontent = readfile(targetname);
+        println(targetcontent);
     }
     else if(choice == "2")
     {

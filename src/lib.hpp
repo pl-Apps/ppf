@@ -1,6 +1,6 @@
 #include <iostream>
+#include <fstream>
 #include <string>
-#include <filesystem>
 
 using namespace std;
 
@@ -33,4 +33,52 @@ int clear()
 {
     print("\033[2J\033[1;1H");
     return 0;
+}
+
+string readfile(string filename)
+{
+    fstream target;
+	target.open(filename, ios::in);
+	if (!target) {
+		println("No such file");
+        exit(1);
+	}
+	else {
+		char ch;
+        string ret;
+		while (1) {
+			target >> ch;
+			if (target.eof())
+				break;
+			ret += ch;
+		}
+        return ret;
+	}
+	target.close();
+	return 0;
+}
+
+namespace ppf_coding_struct
+{   
+    string decode(int* code[])
+    {
+        
+    }
+    string encode(string source)
+    {
+            const string input = "ciao io sono peppo";
+        int output[500];
+        int i = 0;
+        for(char c : input) {
+            const int crt = int(c);
+            output[i] = crt;
+            i++;
+        }
+        string tmp;
+        for(int o : output)
+        {
+            tmp += to_string(o);
+        }
+        return tmp;
+    }
 }
