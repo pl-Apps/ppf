@@ -21,6 +21,10 @@ int main(int argc, char* argv[])
         clear();
         print("New pack file name: ");
         const string newpack = input();
+        clear();
+        print("Source file: ");
+        const string source_filename = input();
+        ppf_coding_struct::encode_file(newpack, readfile(source_filename));
     }
     else
     {
