@@ -77,14 +77,13 @@ namespace ppf_coding_struct
 {
     string decode(int* code)
     {
-        
+        return "NO";
     }
     string encode(string source)
     {
-        const string input = "ciao io sono peppo";
         int output[5000];
         int i = 0;
-        for(char c : input) {
+        for(char c : source) {
             const int crt = int(c);
             output[i] = crt;
             i++;
@@ -98,7 +97,15 @@ namespace ppf_coding_struct
     }
     int encode_file(string filename, string content)
     {
-        const string encoded = encode(content);
-        writefile(filename, encoded);
+        try 
+        {
+            const string encoded = encode(content);
+            writefile(filename, encoded);
+            return 0;
+        }
+        catch (exception ex)
+        {
+            return 1;
+        }
     }
 }
