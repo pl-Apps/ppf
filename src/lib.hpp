@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstring>
 
 using namespace std;
 
@@ -100,7 +101,7 @@ namespace ppf_coding_struct
     }
     string encode(string source)
     {
-        int output[5000];
+        int output[source.length()];
         int i = 0;
         for(char c : source) {
             const int crt = int(c);

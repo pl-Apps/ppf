@@ -2,17 +2,28 @@
 
 int main(int argc, char* argv[])
 {
+    if(argc >= 2)
+    {
+        println("Too arguments");
+        exit(1);
+    }
     mainmenu:
     clear();
     println("█▀█ █▀█ █▀▀\n█▀▀ █▀▀ █▀\n");
-    println("[1] Unpack ppackfile");
-    println("[2] Pack ppackfile\n");
+    println(" _____________________ ");
+    println("|       Files         |");
+    println("| [1] Decode file     |");
+    println("| [2] Encode file     |\n");
+    println("|       String        |");
+    println("| [3] Decode string   |");
+    println("| [4] Encode string   |");
+    println("|_____________________|\n");
     const string choice = input();
     if(choice == "1")
     {
         clear();
         print("Packed file: ");
-        const string targetname = input();
+        const string targetname = input() + ".ppf";
         clear();
         print("Output file: ");
         const string outtargetname = input();
@@ -23,7 +34,7 @@ int main(int argc, char* argv[])
     {
         clear();
         print("New pack file name: ");
-        const string newpack = input();
+        const string newpack = input() + ".ppf";
         clear();
         print("Source file: ");
         const string source_filename = input();

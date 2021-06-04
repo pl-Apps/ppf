@@ -1,5 +1,5 @@
 build:
-	g++ -fpermissive src/app.cpp -o bin/ppf
+	g++ -fpermissive -Wwrite-strings -Wreturn-type src/app.cpp -o bin/ppf
 install:
 	make build
 	sudo cp bin/* /bin/
