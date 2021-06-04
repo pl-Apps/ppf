@@ -80,24 +80,21 @@ int writefile(string filename, string content)
 namespace ppf_coding_struct
 {
     typedef int* encoded_string;
+    encoded_string read_chars(string encoded_value)
+    {
+        const char dlt = '|';
+        encoded_string ret;
+        for(int i=0; i < sizeof(encoded_value); i++)
+        encoded_value.substr(0, encoded_value.find(dlt));
+    }
     string decode(encoded_string code)
     {
-        char ret[size_t(code)];
-        int recchars[28];
-        for(int i = 0; i < size_t(recchars); i++)
-        {
-            recchars[i] = int(alpchars[i]);
-        }
+        string ret;
         for(int i = 0; i < size_t(code); i++)
         {
-            for(int z = 0; z < size_t(recchars); z++)
-            {
-                if(code[i] == recchars[z])
-                {
-                    ret[i] = alpchars[z];
-                }
-            }
+            ret += (char*)(code[i]);
         }
+        return ret;
     }
     string encode(string source)
     {
@@ -111,10 +108,11 @@ namespace ppf_coding_struct
         string tmp;
         for(int o : output)
         {
-            tmp += to_string(o) + " | ";
+            tmp += to_string(o) + "|";
         }
         return tmp;
     }
+
     encoded_string read_encoded_file(string filename)
     {
         const string text = readfile(filename);

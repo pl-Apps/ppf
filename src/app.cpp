@@ -10,14 +10,14 @@ int main(int argc, char* argv[])
     mainmenu:
     clear();
     println("█▀█ █▀█ █▀▀\n█▀▀ █▀▀ █▀\n");
-    println(" _____________________ ");
-    println("|       Files         |");
-    println("| [1] Decode file     |");
-    println("| [2] Encode file     |\n");
-    println("|       String        |");
-    println("| [3] Decode string   |");
-    println("| [4] Encode string   |");
-    println("|_____________________|\n");
+    println(" ____________________ ");
+    println("|       Files        |");
+    println("| [1] Decode file    |");
+    println("| [2] Encode file    |");
+    println("|       String       |");
+    println("| [3] Decode string  |");
+    println("| [4] Encode string  |");
+    println("|____________________|\n");
     const string choice = input();
     if(choice == "1")
     {
