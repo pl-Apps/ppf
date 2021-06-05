@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <cstring>
+#include "compression.h"
 
 using namespace std;
 
